@@ -10,7 +10,7 @@ void TestRemovingWithZeroElements(CuTest *tc) {
   int expected_size = 0;
   CuAssertIntEquals(tc, expected_size, actual_size);
 
-  int *actual = (int *)chlinkedlist_removeFromEnd(list);
+  int *actual = (int *)chlinkedlist_pop(list);
   void *expected = NULL;
   CuAssertPtrEquals(tc, expected, actual);
 }
@@ -25,7 +25,7 @@ void TestRemovingWithOneElement(CuTest *tc) {
   int expected_size = 1;
   CuAssertIntEquals(tc, expected_size, actual_size);
 
-  int *actual = (int *)chlinkedlist_removeFromEnd(list);
+  int *actual = (int *)chlinkedlist_pop(list);
   int expected = 5;
   CuAssertIntEquals(tc, expected, *actual);
 }
@@ -42,7 +42,7 @@ void TestRemovingWithTwoElements(CuTest *tc) {
   int expected_size = 2;
   CuAssertIntEquals(tc, expected_size, actual_size);
 
-  int *actual = (int *)chlinkedlist_removeFromEnd(list);
+  int *actual = (int *)chlinkedlist_pop(list);
   int expected = 6;
   CuAssertIntEquals(tc, expected, *actual);
 }
@@ -57,16 +57,16 @@ void TestRemovingTwoElementsInARow(CuTest *tc) {
   int expected_size = 1;
   CuAssertIntEquals(tc, expected_size, actual_size);
 
-  int *actual = (int *)chlinkedlist_removeFromEnd(list);
+  int *actual = (int *)chlinkedlist_pop(list);
   int expected = 5;
   CuAssertIntEquals(tc, expected, *actual);
 
-  actual = (int *)chlinkedlist_removeFromEnd(list);
+  actual = (int *)chlinkedlist_pop(list);
   int *expectedNull = NULL;
   CuAssertPtrEquals(tc, expectedNull, actual);
 }
 
-CuSuite* CHLinkedListRemoveGetSuite() {
+CuSuite* CHLinkedListPopGetSuite() {
   CuSuite* suite = CuSuiteNew();
   SUITE_ADD_TEST(suite, TestRemovingWithZeroElements);
   SUITE_ADD_TEST(suite, TestRemovingWithOneElement);

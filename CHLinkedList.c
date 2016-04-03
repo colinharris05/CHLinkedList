@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include "CHLinkedList.h"
 
 typedef struct CHNode {
@@ -53,7 +52,6 @@ void *chlinkedlist_get(CHLinkedList *list, int index) {
 }
 
 void chlinkedlist_append(CHLinkedList *list, void *data) {
-  assert(data != '\0');
   CHNode *node = newNode(data);
   if (list->head == NULL && list->tail == NULL) {
     list->head = node;
@@ -65,7 +63,7 @@ void chlinkedlist_append(CHLinkedList *list, void *data) {
   list->size++;
 }
 
-void *chlinkedlist_removeFromEnd(CHLinkedList *list) {
+void *chlinkedlist_pop(CHLinkedList *list) {
   if (list->size == 0) {
     return NULL;
   } else if (list->size == 1) {

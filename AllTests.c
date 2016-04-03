@@ -3,14 +3,14 @@
 #include "CuTest.h"
 
 CuSuite* CHLinkedListAppendGetSuite();
-CuSuite* CHLinkedListRemoveGetSuite();
+CuSuite* CHLinkedListPopGetSuite();
 
 void RunAllTests() {
   CuString *output = CuStringNew();
   CuSuite* suite = CuSuiteNew();
 
   CuSuiteAddSuite(suite, CHLinkedListAppendGetSuite());
-  CuSuiteAddSuite(suite, CHLinkedListRemoveGetSuite());
+  CuSuiteAddSuite(suite, CHLinkedListPopGetSuite());
 
   CuSuiteRun(suite);
   CuSuiteSummary(suite, output);
