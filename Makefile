@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -I.
 
 DEPS = CHLinkedList.h
-OBJ = CHLinkedList.o CHLinkedListAppendTests.o AllTests.o CuTest.o CuTestTest.o
+OBJ = CHLinkedList.o CHLinkedListAppendTests.o CHLinkedListRemoveTests.o AllTests.o CuTest.o CuTestTest.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
