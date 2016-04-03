@@ -68,6 +68,12 @@ void chlinkedlist_append(CHLinkedList *list, void *data) {
 void *chlinkedlist_removeFromEnd(CHLinkedList *list) {
   if (list->size == 0) {
     return NULL;
+  } else if (list->size == 1) {
+    CHNode *node = list->tail;
+    list->head = NULL;
+    list->tail = NULL;
+    list->size--;
+    return node->data;  
   }
   CHNode *node = list->tail;
   CHNode *curr = list->head;
