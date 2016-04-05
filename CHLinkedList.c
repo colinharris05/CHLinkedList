@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "CHLinkedList.h"
 
 typedef struct CHNode {
@@ -30,8 +31,15 @@ CHLinkedList *chlinkedlist_new() {
   return list;
 }
 
-void chlinkedlist_print(CHLinkedList *list) {
+bool chlinkedlist_contains(CHLinkedList *list, void *value) {
+  if (list->size == 0) {
+    return false; 
+  }
   CHNode *curr = list->head;
+  while (curr != NULL) {
+    if (curr->data == value) return true;
+  }
+  return false;
 }
 
 int chlinkedlist_size(CHLinkedList *list) {

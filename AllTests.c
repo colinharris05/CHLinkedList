@@ -4,6 +4,8 @@
 
 CuSuite* CHLinkedListAppendGetSuite();
 CuSuite* CHLinkedListPopGetSuite();
+CuSuite* CHLinkedListGetGetSuite();
+CuSuite* CHLinkedListContainsGetSuite();
 
 void RunAllTests() {
   CuString *output = CuStringNew();
@@ -11,6 +13,8 @@ void RunAllTests() {
 
   CuSuiteAddSuite(suite, CHLinkedListAppendGetSuite());
   CuSuiteAddSuite(suite, CHLinkedListPopGetSuite());
+  CuSuiteAddSuite(suite, CHLinkedListGetGetSuite());
+  CuSuiteAddSuite(suite, CHLinkedListContainsGetSuite());
 
   CuSuiteRun(suite);
   CuSuiteSummary(suite, output);
